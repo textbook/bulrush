@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}{{ page.title }}{% endblock %}
+{% block content %}
+  <section id="content" class="body">
+    <h1 class="title"><a href="{{ SITEURL }}/{{ page.url }}" rel="bookmark"
+       title="Permalink to {{ page.title|striptags }}">{{ page.title }}</a></h1>
+    {% import 'translations.html' as translations with context %}
+    {{ translations.translations_for(page) }}
+    <div class="section">{{ page.content }}</div>
+  </section>
+{% endblock %}

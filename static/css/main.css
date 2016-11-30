@@ -1,0 +1,66 @@
+.section > p, .section > ul, .section > ol {
+  margin-bottom: 0.5em;
+}
+
+.section > ul {
+  list-style-type: disc;
+}
+
+.section li {
+  margin-left: 2em;
+}
+
+.section li {
+  margin-bottom: 0.25em;
+}
+
+.section ol li {
+  padding-left: 0.5em;
+}
+
+.title.is-brand {
+  font-weight: bold;
+}
+
+footer.footer {
+  position: relative;
+}
+
+.github-fork-ribbon-wrapper {
+  bottom: 0;
+  height: 150px;
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  width: 150px;
+}
+
+.github-fork-ribbon {
+  background-color: #00d1b2;
+  padding: 1px 0;
+  pointer-events: auto;
+  position: absolute;
+  right: -65px;
+  -webkit-transform: rotate(315deg);
+  -moz-transform: rotate(315deg);
+  -ms-transform: rotate(315deg);
+  -o-transform: rotate(315deg);
+  text-align: center;
+  top: 65px;
+  transform: rotate(315deg);
+}
+
+footer.footer .github-fork-ribbon > a:not(.icon) {
+  border: 1px dotted #f5f5f5;
+  color: #f5f5f5;
+  display: inline-block;
+  text-decoration: none;
+  width: 250px;
+}
+
+footer.footer .github-fork-ribbon > a:not(.icon):hover {
+  background-color: #f5f5f5;
+  border: 1px solid #f5f5f5;
+  color: #00d1b2;
+}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}{{ SITENAME }} - Archive{% endblock %}
+{% block content %}
+  <p class="subtitle">
+    <span class="icon is-small"><i class="fa fa-calendar-o"></i></span>
+    Archives for {{ SITENAME }}
+  </p>
+
+  <div class="menu">
+    {% for article in dates %}
+      <p class="menu-label">{{ article.locale_date }}</p>
+      <ul class="menu-list">
+        <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+      </ul>
+    {% endfor %}
+  </div>
+{% endblock %}

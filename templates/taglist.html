@@ -1,0 +1,5 @@
+{% if article.tags %}
+  {% for tag in article.tags %}
+      <span class="tag is-small"><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag | escape }}</a></span>
+  {% endfor %}
+{% endif %}

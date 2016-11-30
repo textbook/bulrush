@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="{{ DEFAULT_LANG }}">
+<head>
+  <meta charset="utf-8"/>
+  <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
+  {% assets "css/main.css" %}
+    <link rel="stylesheet" href="{{ SITEURL }}/{{ ASSET_URL }}">
+  {% endassets %}
+  <link rel="stylesheet"
+        href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet"
+        href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.2.3/css/bulma.min.css">
+  <!--[if IE]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body id="index" class="home">
+<section class="hero is-primary">
+  <div class="hero-head">
+    <div class="container">
+      <nav class="nav">
+        <div class="nav-left">
+          <a class="nav-item is-brand title{% if output_file == "index.html" %} is-active{% endif %}"
+             href="{{ SITEURL }}/">{{ SITENAME }}</a>
+        </div>
+      </nav>
+    </div>
+  </div>
+</section>
+<nav class="nav has-shadow">
+  <div class="container">
+    <div class="nav-center"></div>
+    <span id="navToggle" class="nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+    <div id="navMenu" class="nav-right nav-menu">
+      {% for title, link in MENUITEMS|reverse %}
+        <a class="nav-item is-tab" href="{{ link }}">{{ title }}</a>
+      {% endfor %}
+      {% if DISPLAY_CATEGORIES_ON_MENU -%}
+        {% for cat, null in categories|reverse %}
+          <a class="nav-item is-tab {% if cat == category %}is-active{% endif %}"
+             href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</nav>
+
+<div class="section columns">
+  <div class="column is-three-quarters-desktop is-two-thirds-tablet">
+    {% block content %}
+    {% endblock %}
+  </div>
+
+  <div class="column is-one-quarter-desktop is-one-third-tablet">
+    <aside class="menu">
+      {% if PAGES or FEED_ALL_ATOM or FEED_ALL_RSS %}
+        <p class="menu-label">other pages</p>
+        <ul class="menu-list">
+          {% for pg in PAGES %}
+            <li><a {% if pg == page %}class="is-active"{% endif %}
+                   href="{{ SITEURL }}/{{ pg.url }}">
+              <span class="icon is-small"><i
+                  class="fa fa-book"></i></span> {{ pg.title }}
+            </a></li>
+          {% endfor %}
+          {% if FEED_ALL_ATOM %}
+            <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}"
+                   type="application/atom+xml" rel="alternate">
+              <span class="icon is-small"><i class="fa fa-rss"></i></span>
+              Atom Feed
+            </a></li>
+          {% endif %}
+          {% if FEED_ALL_RSS %}
+            <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}"
+                   type="application/rss+xml" rel="alternate">
+              <span class="icon is-small"><i class="fa fa-rss"></i></span> RSS
+              Feed
+            </a></li>
+          {% endif %}
+        </ul>
+      {% endif %}
+      {% if LINKS %}
+        <p class="menu-label">blogroll</p>
+        <ul class="menu-list">
+          {% for name, link in LINKS %}
+            <li><a href="{{ link }}">
+              <span class="icon is-small"><i
+                  class="fa fa-globe fa-fw"></i></span> {{ name }}
+            </a></li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+      {% if SOCIAL %}
+        <p class="menu-label">social</p>
+        <ul class="menu-list">
+          {% for name, link in SOCIAL %}
+            <li><a href="{{ link }}">
+              <span class="icon is-small">
+                {% if name|lower == 'stack overflow' %}
+                  <i class="fa fa-stack-overflow fa-fw"></i>
+                {% elif name|lower == 'bitbucket' %}
+                  <i class="fa fa-bitbucket fa-fw"></i>
+                {% elif name|lower == 'github' %}
+                  <i class="fa fa-github fa-fw"></i>
+                {% elif name|lower == 'twitter' %}
+                  <i class="fa fa-twitter fa-fw"></i>
+                {% else %}
+                  <i class="fa fa-globe fa-fw"></i>
+                {% endif %}
+              </span> {{ name }}</a></li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </aside>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container has-text-centered">
+    {% if SITESUBTITLE %} <p class="subtitle">{{ SITESUBTITLE }}</p>{% endif %}
+    <p>Theme developed by <a href="http://hello.jonrshar.pe">Jonathan Sharpe</a>
+      | <span class="icon is-small"><i class="fa fa-html5"></i></span> HTML 5
+      | <span class="icon is-small"><i class="fa fa-css3"></i></span> CSS 3
+    </p>
+  </div>
+  {% include 'github.html' %}
+</footer>
+
+{% include 'analytics.html' %}
+{% include 'disqus_script.html' %}
+<script type="text/javascript">
+  document.getElementById('navToggle').addEventListener('click', function () {
+    var nav = document.getElementById('navMenu');
+    var className = nav.getAttribute('class');
+    if (className == 'nav-right nav-menu') {
+      nav.className = 'nav-right nav-menu is-active';
+    } else {
+      nav.className = 'nav-right nav-menu';
+    }
+  });
+</script>
+</body>
+</html>
