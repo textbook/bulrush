@@ -2,6 +2,7 @@
 <html lang="{{ DEFAULT_LANG }}">
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width">
   <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
   {% assets "css/main.css" %}
     <link rel="stylesheet" href="{{ SITEURL }}/{{ ASSET_URL }}">
@@ -123,7 +124,7 @@
 <footer class="footer">
   <div class="container has-text-centered">
     {% if SITESUBTITLE %} <p class="subtitle">{{ SITESUBTITLE }}</p>{% endif %}
-    <p>Theme developed by <a href="http://hello.jonrshar.pe">Jonathan Sharpe</a>
+    <p>Theme by <a href="http://hello.jonrshar.pe">Jonathan Sharpe</a>
       | <span class="icon is-small"><i class="fa fa-html5"></i></span> HTML 5
       | <span class="icon is-small"><i class="fa fa-css3"></i></span> CSS 3
     </p>
