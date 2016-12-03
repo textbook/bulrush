@@ -4,7 +4,7 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width">
   <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
-  {% assets "css/main.css" %}
+  {% assets filters="less", output="css/main.%(version)s.css", "css/main.less" %}
     <link rel="stylesheet" href="{{ SITEURL }}/{{ ASSET_URL }}">
   {% endassets %}
   <link rel="stylesheet"

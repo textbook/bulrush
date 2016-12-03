@@ -1,0 +1,93 @@
+@white: #f5f5f5;
+@dark-grey: #4a4a4a;
+@darker-grey: #363636;
+@primary: #00d1b2;
+
+.section {
+  & > p, > ul, > ol {
+    margin-bottom: 0.5em;
+  }
+
+  & > ul {
+    list-style-type: disc;
+  }
+
+  blockquote {
+    background-color: @white;
+    color: @dark-grey;
+    margin: 0.25em;
+    padding: 0.5em;
+  }
+
+  li {
+    margin-left: 2em;
+    margin-bottom: 0.25em;
+  }
+
+  ol li {
+    padding-left: 0.5em;
+  }
+}
+
+.title.is-brand {
+  font-weight: bold;
+}
+
+footer.footer {
+  position: relative;
+  .github-fork-ribbon > a:not(.icon) {
+    border: 1px dotted @white;
+    color: @white;
+    display: inline-block;
+    text-decoration: none;
+    width: 250px;
+
+    &:hover {
+      background-color: @white;
+      border: 1px solid @white;
+      color: @primary;
+    }
+  }
+}
+
+.github-fork-ribbon-wrapper {
+  bottom: 0;
+  height: 150px;
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  width: 150px;
+
+  .github-fork-ribbon {
+    background-color: @primary;
+    padding: 1px 0;
+    pointer-events: auto;
+    position: absolute;
+    right: -65px;
+    text-align: center;
+    top: 65px;
+    -webkit-transform: rotate(315deg);
+    -ms-transform: rotate(315deg);
+    transform: rotate(315deg);
+  }
+}
+
+.card.is-fullheight {
+  height: 100%;
+}
+
+a .card-content {
+  h3 {
+    color: @primary;
+  }
+  p {
+    color: @dark-grey;
+  }
+}
+
+a:hover .card-content {
+  h3, p {
+  color: @darker-grey;
+  }
+}
