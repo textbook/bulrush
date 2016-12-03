@@ -4,19 +4,20 @@
 @primary: #00d1b2;
 
 .section {
-  & > p, > ul, > ol {
+  p, ul, ol {
     margin-bottom: 0.5em;
   }
 
-  & > ul {
-    list-style-type: disc;
-  }
 
   blockquote {
     background-color: @white;
     color: @dark-grey;
     margin: 0.25em;
     padding: 0.5em;
+  }
+
+  ul {
+    list-style-type: disc;
   }
 
   li {
@@ -26,6 +27,10 @@
 
   ol li {
     padding-left: 0.5em;
+  }
+
+  img {
+    padding: 1em;
   }
 }
 
