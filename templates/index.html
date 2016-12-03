@@ -26,16 +26,16 @@
           <div class="columns is-multiline">
         {% endif %}
         <div class="column is-half-tablet is-one-third-desktop">
-          <a href="{{ SITEURL }}/{{ article.url }}" class="readmore">
-            <div class="card is-fullwidth is-fullheight">
-              <div class="card-content">
+          <div class="card is-fullwidth is-fullheight">
+            <div class="card-content">
+              <a href="{{ SITEURL }}/{{ article.url }}">
                 <h3 class="title is-5">{{ article.title }}</h3>
                 <div class="heading subtitle">{{ article.locale_date }}</div>
                 <div>{{ article.summary | truncate(120, end='...<br />') }}</div>
-                {% include 'comments.html' %}
-              </div>
+              </a>
+              {% include 'comments.html' %}
             </div>
-          </a>
+          </div>
         </div>
       {% endif %}
     {% endfor %}
