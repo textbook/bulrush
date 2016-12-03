@@ -71,3 +71,19 @@ footer.footer .github-fork-ribbon > a:not(.icon):hover {
   border: 1px solid #f5f5f5;
   color: #00d1b2;
 }
+
+.card.is-fullheight {
+  height: 100%;
+}
+
+a .card-content h3 {
+  color: #00d1b2;
+}
+
+a .card-content p {
+  color: #4a4a4a;
+}
+
+a:hover .card-content h3, a:hover .card-content p {
+  color: #363636;
+}
