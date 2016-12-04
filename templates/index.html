@@ -31,7 +31,7 @@
               <a href="{{ SITEURL }}/{{ article.url }}">
                 <h3 class="title is-5">{{ article.title }}</h3>
                 <div class="heading subtitle">{{ article.locale_date }}</div>
-                <div>{{ article.summary | truncate(120, end='...<br />') }}</div>
+                <div><p>{{ article.summary | striptags | truncate(120, end='...<br />') }}</p></div>
               </a>
               {% include 'comments.html' %}
             </div>
