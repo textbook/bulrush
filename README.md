@@ -27,13 +27,11 @@ JINJA_EXTENSIONS = ['webassets.ext.jinja2.AssetsExtension', 'jinja2.ext.with_']
 Features
 --------
 
-**Key**: ☐ Planned ☑ Delivered ☒ Not planned
-
-**☑ Responsive design** - four column layout on desktop (≥980px), three column
+ - [x] **Responsive design** - four column layout on desktop (≥980px), three column
 on tablet (≥769px), single column on mobile. Tabbed navigation bar collapses
 into drop-down "burger menu" on mobile.
 
-**☑ Meta tagging functionality** - support for [Open Graph][5] and [Twitter
+ - [x] **Meta tagging functionality** - support for [Open Graph][5] and [Twitter
 Cards][6] meta tags, giving enhanced display when sharing articles on social
 media sites (**note**: *currently only available for [articles and pages][7]*).
 
