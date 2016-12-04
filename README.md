@@ -38,9 +38,9 @@ media sites (**note**: *currently only available for [articles and pages][7]*).
 Screenshots
 -----------
 
- - 960 x 480px:
+ - 980 x 480px:
 
-     ![Screenshot - Bulrush at 960px][10]
+     ![Screenshot - Bulrush at 980px][10]
 
  - 480 x 480px
 
@@ -63,7 +63,7 @@ Screenshots
   [7]: http://docs.getpelican.com/en/3.6.3/content.html#articles-and-pages
   [8]: http://jinja.pocoo.org/docs/dev/extensions/#with-statement
   [9]: https://github.com/miracle2k/webassets/
-  [10]: ./screenshot-960px.png
+  [10]: ./screenshot-980px.png
   [11]: ./screenshot-480px.png
   [12]: ./screenshot-840px.png
   [13]: ./screenshot-1440px.png
