@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 {% block title %}{{ page.title }}{% endblock %}
+{% block tags %}
+  {% with item=page %}
+    {% include 'meta_tags.html' %}
+  {% endwith %}
+{% endblock %}
 {% block content %}
   <section id="content" class="body">
     <h1 class="title"><a href="{{ SITEURL }}/{{ page.url }}" rel="bookmark"

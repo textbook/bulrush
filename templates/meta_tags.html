@@ -1,0 +1,15 @@
+<meta property="og:title" content="{{ SITENAME }}{% if item.title %} - {{ item.title }}{% endif %}">
+{% if item.summary %}
+  <meta property="og:description" content="{{ item.summary | striptags | truncate(200, end='...') }}">
+{% endif %}
+<meta property="og:url" content="{{ SITEURL }}/{{ item.url }}">
+{% if AVATAR %}
+  <meta property="og:image" content="{{ SITEURL }}/images/{{ AVATAR }}">
+
+  <meta name="twitter:image:alt" content="{{ SITENAME }}{% if SITESUBTITLE %} | {{ SITESUBTITLE }}{% endif %}">
+{% endif %}
+<meta name="twitter:card" content="summary">
+{% if TWITTER_USERNAME %}
+  <meta name="twitter:creator" content="@{{ TWITTER_USERNAME }}">
+  <meta name="twitter:site" content="@{{ TWITTER_USERNAME }}">
+{% endif %}
