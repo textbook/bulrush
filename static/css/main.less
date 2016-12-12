@@ -1,4 +1,4 @@
-@white: #f5f5f5;
+@grey: #f5f5f5;
 @dark-grey: #4a4a4a;
 @darker-grey: #363636;
 @primary: #00d1b2;
@@ -8,11 +8,10 @@
     margin-bottom: 0.5em;
   }
 
-
-  blockquote {
-    background-color: @white;
+  blockquote, .highlight {
+    background-color: @grey;
     color: @dark-grey;
-    margin: 0.25em;
+    margin: 0.25em 0.25em 0.5em 0.25em !important;
     padding: 0.5em;
   }
 
@@ -32,6 +31,15 @@
   img {
     padding: 1em;
   }
+
+  table {
+    td, th {
+      border: 1px solid @grey;
+      padding: 0.25em;
+    }
+
+    margin-bottom: 0.5em;
+  }
 }
 
 .title.is-brand {
@@ -41,15 +49,15 @@
 footer.footer {
   position: relative;
   .github-fork-ribbon > a:not(.icon) {
-    border: 1px dotted @white;
-    color: @white;
+    border: 1px dotted @grey;
+    color: @grey;
     display: inline-block;
     text-decoration: none;
     width: 250px;
 
     &:hover {
-      background-color: @white;
-      border: 1px solid @white;
+      background-color: @grey;
+      border: 1px solid @grey;
       color: @primary;
     }
   }
