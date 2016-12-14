@@ -63,11 +63,11 @@
 
     <div class="column is-one-quarter-desktop is-one-third-tablet">
       <aside class="menu">
-        {% if (PAGES and DISPLAY_PAGES_ON_MENU) or FEED_ALL_ATOM or FEED_ALL_RSS %}
+        {% if (pages and DISPLAY_PAGES_ON_MENU) or FEED_ALL_ATOM or FEED_ALL_RSS %}
           <p class="menu-label">other pages</p>
           <ul class="menu-list">
             {% if DISPLAY_PAGES_ON_MENU %}
-              {% for pg in PAGES %}
+              {% for pg in pages %}
                 <li><a {% if pg == page %}class="is-active"{% endif %}
                        href="{{ SITEURL }}/{{ pg.url }}">
                   <span class="icon is-small"><i
