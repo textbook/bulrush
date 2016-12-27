@@ -75,6 +75,22 @@ be added to your project with:
 pip install webassets
 ```
 
+The main stylesheet is provided in [Less][16] format, so you will need the Less
+compiler (`lessc`). An easy way to install this is:
+
+```bash
+npm install -g less
+```
+
+You also need to make the appropriate Pelican plugin, [`assets`][15], available.
+One way of achieving this is to make the `pelican-plugin` repository a submodule
+of your site, then you can add to your `pelicanconf.py`:
+
+```python
+PLUGIN_PATHS = ['pelican-plugins']
+PLUGINS = ['assets']
+```
+
 It also requires two Jinja plugins, `webassets` and [the `with` statement][8].
 To implement this, I have the following in my `pelicanconf.py`:
 
@@ -96,3 +112,5 @@ JINJA_EXTENSIONS = ['webassets.ext.jinja2.AssetsExtension', 'jinja2.ext.with_']
   [12]: ./screenshot-840px.png
   [13]: ./screenshot-1440px.png
   [14]: http://docs.getpelican.com/en/3.6.3/settings.html#basic-settings
+  [15]: https://github.com/getpelican/pelican-plugins/tree/master/assets
+  [16]: http://lesscss.org/
