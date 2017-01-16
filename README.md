@@ -49,7 +49,7 @@ your `pelicanconf.py`:
 | `LINKS` | A list of tuples `('Title', 'URL')` for links to appear in the "blogroll" section of the sidebar. |
 | `MENUITEMS` | A list of tuples `('Title', 'URL')` for items to appear in the tabbed navigation. |
 | `SITESUBTITLE` | A subtitle to appear in the header. |
-| `SOCIAL` | A list of tuples `('Title', 'URL')` to appear in the “social” section of the sidebar. |
+| `SOCIAL` | A list of tuples `('Title', 'URL')` to appear in the "social" section of the sidebar. |
 | `TWITTER_USERNAME` | Enables Twitter meta-tags in the article and page headers. |
 
 If `DISPLAY_CATEGORIES_ON_MENU` is omitted or set explicitly to `True`, the
@@ -57,13 +57,10 @@ categories are shown in the tabbed navigation with any `MENUITEMS`. If
 `DISPLAY_PAGES_ON_MENU` is omitted or set explicitly to `True`, they are listed
 in the sidebar with any `SOCIAL` or other `LINKS`.
 
-If the following titles are used in `SOCIAL`, an appropriate icon is added in
-the sidebar:
+Appropriate icons are provided in the sidebar for a range of sites in the
+`SOCIAL` link list. Have a look in [`social.html`][17] to see which titles this
+applies to.
 
- - Bitbucket
- - GitHub
- - Stack Overflow
- - Twitter
 
 Requirements
 ------------
@@ -114,3 +111,4 @@ JINJA_EXTENSIONS = ['webassets.ext.jinja2.AssetsExtension', 'jinja2.ext.with_']
   [14]: http://docs.getpelican.com/en/3.6.3/settings.html#basic-settings
   [15]: https://github.com/getpelican/pelican-plugins/tree/master/assets
   [16]: http://lesscss.org/
+  [17]: https://github.com/textbook/bulrush/blob/master/templates/social.html

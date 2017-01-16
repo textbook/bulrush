@@ -1,0 +1,33 @@
+<p class="menu-label">social</p>
+<ul class="menu-list">
+  {% for title, link in SOCIAL %}
+    <li><a href="{{ link }}">
+      <span class="icon is-small">
+        {% if title|lower in [
+          'bitbucket', 'github', 'gitlab',
+          '500px', 'flickr', 'instagram',
+          'etsy',
+          'pinterest', 'quora', 'reddit',
+          'bandcamp', 'mixcloud', 'soundcloud', 'spotify',
+          'medium', 'tumblr', 'wordpress',
+          'slideshare',
+          'linkedin', 'twitter', 'weibo', 'weixin',
+          'vimeo', 'youtube',
+        ] %}
+          <i class="fa fa-{{ title|lower }} fa-fw"></i>
+        {% elif title|lower == 'facebook' %}
+          <i class="fa fa-facebook-official fa-fw"></i>
+        {% elif title|lower == 'google+' %}
+          <i class="fa fa-google-plus fa-fw"></i>
+        {% elif title|lower == 'last.fm' %}
+          <i class="fa fa-lastfm fa-fw"></i>
+        {% elif title|lower == 'stack overflow' %}
+          <i class="fa fa-stack-overflow fa-fw"></i>
+        {% else %}
+          <i class="fa fa-globe fa-fw"></i>
+        {% endif %}
+      </span>
+      <span class="link-text">{{ title }}</span>
+    </a></li>
+  {% endfor %}
+</ul>

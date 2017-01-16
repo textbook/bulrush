@@ -68,8 +68,8 @@
               {% for pg in pages %}
                 <li><a {% if pg == page %}class="is-active"{% endif %}
                        href="{{ SITEURL }}/{{ pg.url }}">
-                  <span class="icon is-small"><i
-                      class="fa fa-book"></i></span> {{ pg.title }}
+                  <span class="icon is-small"><i class="fa fa-book"></i></span>
+                  <span class="link-text">{{ pg.title }}</span>
                 </a></li>
               {% endfor %}
             {% endif %}
@@ -77,14 +77,14 @@
               <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}"
                      type="application/atom+xml" rel="alternate">
                 <span class="icon is-small"><i class="fa fa-rss"></i></span>
-                Atom Feed
+                <span class="link-text">Atom Feed</span>
               </a></li>
             {% endif %}
             {% if FEED_ALL_RSS %}
               <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}"
                      type="application/rss+xml" rel="alternate">
                 <span class="icon is-small"><i class="fa fa-rss"></i></span>
-                RSS Feed
+                <span class="link-text">RSS Feed</span>
               </a></li>
             {% endif %}
           </ul>
@@ -94,32 +94,14 @@
           <ul class="menu-list">
             {% for name, link in LINKS %}
               <li><a href="{{ link }}">
-                <span class="icon is-small"><i
-                    class="fa fa-globe fa-fw"></i></span> {{ name }}
+                <span class="icon is-small"><i class="fa fa-globe fa-fw"></i></span>
+                <span class="link-text">{{ name }}</span>
               </a></li>
             {% endfor %}
           </ul>
         {% endif %}
         {% if SOCIAL %}
-          <p class="menu-label">social</p>
-          <ul class="menu-list">
-            {% for name, link in SOCIAL %}
-              <li><a href="{{ link }}">
-                <span class="icon is-small">
-                  {% if name|lower == 'stack overflow' %}
-                    <i class="fa fa-stack-overflow fa-fw"></i>
-                  {% elif name|lower == 'bitbucket' %}
-                    <i class="fa fa-bitbucket fa-fw"></i>
-                  {% elif name|lower == 'github' %}
-                    <i class="fa fa-github fa-fw"></i>
-                  {% elif name|lower == 'twitter' %}
-                    <i class="fa fa-twitter fa-fw"></i>
-                  {% else %}
-                    <i class="fa fa-globe fa-fw"></i>
-                  {% endif %}
-                </span> {{ name }}</a></li>
-            {% endfor %}
-          </ul>
+          {% include 'social.html' %}
         {% endif %}
       </aside>
     </div>
