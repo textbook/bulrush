@@ -38,9 +38,9 @@
           </div>
         </div>
       {% endif %}
+      {% if articles_page.has_previous() or loop.length > 1 %}
+        </div>
+      {% endif %}
     {% endfor %}
-    {% if articles_page.has_previous() or loop.length > 1 %}
-      </div>
-    {% endif %}
   {% endif %}
 {% endblock %}
