@@ -1,46 +1,27 @@
 {% extends "base.html" %}
 {% block content_title %}{% endblock %}
 {% block content %}
-  {% if articles %}
-    {% for article in articles_page.object_list %}
-      {% if loop.first and not articles_page.has_previous() %}
-        <aside id="featured" class="body">
-          <article>
-            <h1 class="title"><a
-                href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
-            </h1>
-            {% include 'article_infos.html' %}
-            <div class="section">
-              {{ article.content }}{% include 'comments.html' %}</div>
-          </article>
-        </aside>
-        {% if loop.length > 1 %}
-          <h2 class="subtitle">Other articles</h2>
-          {% include 'pagination.html' %}
-          <div class="columns is-multiline">
-        {% endif %}
-      {% else %}
-        {% if loop.first %}
-          <h2 class="subtitle">Other articles</h2>
-          {% include 'pagination.html' %}
-          <div class="columns is-multiline">
-        {% endif %}
-        <div class="column is-half-tablet is-one-third-desktop">
-          <div class="card is-fullwidth is-fullheight">
-            <div class="card-content">
-              <a href="{{ SITEURL }}/{{ article.url }}">
-                <h3 class="title is-5">{{ article.title }}</h3>
-                <div class="heading subtitle">{{ article.locale_date }}</div>
-                <div><p>{{ article.summary | striptags | truncate(120, end='...<br />') }}</p></div>
-              </a>
-              {% include 'comments.html' %}
-            </div>
+  {% if articles and not articles_page.has_previous() %}
+    {% with article = articles[0] %}
+      <aside id="featured" class="body">
+        <article>
+          <h1 class="title">
+            <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+          </h1>
+          {% include 'article_infos.html' %}
+          <div class="section">
+            {{ article.content }}
+            {% include 'comments.html' %}
           </div>
-        </div>
-      {% endif %}
-    {% endfor %}
-    {% if articles_page.has_previous() or loop.length > 1 %}
-      </div>
-    {% endif %}
+        </article>
+      </aside>
+    {% endwith %}
+    {% with article_list = articles_page.object_list[1:] %}
+      {% include 'article_list.html' %}
+    {% endwith %}
+  {% else %}
+    {% with article_list = articles_page.object_list %}
+      {% include 'article_list.html' %}
+    {% endwith %}
   {% endif %}
 {% endblock %}
