@@ -92,7 +92,9 @@ It also requires two Jinja plugins, `webassets` and [the `with` statement][8].
 To implement this, I have the following in my `pelicanconf.py`:
 
 ```python
-JINJA_EXTENSIONS = ['webassets.ext.jinja2.AssetsExtension', 'jinja2.ext.with_']
+JINJA_ENVIRONMENT = {
+    'extensions': ['webassets.ext.jinja2.AssetsExtension', 'jinja2.ext.with_'],
+}
 ```
 
   [1]: http://bulma.io/
