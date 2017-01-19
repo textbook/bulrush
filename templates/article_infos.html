@@ -12,16 +12,16 @@
 
   {% if article.authors %}
     <p class="author">
-			<em>by {% for author in article.authors %}
-				{% if author.url %}
-					<a class="url fn" href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>
-				{% else %}
-					{{ author }}
-				{% endif %}
-			{% endfor %}</em>
+      <em>by {% for author in article.authors %}
+        {% if author.url %}
+          <a class="url fn" href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>
+        {% else %}
+          {{ author }}
+        {% endif %}
+      {% endfor %}</em>
       {% include 'taglist.html' %}
     </p>
   {% endif %}
   {% import 'translations.html' as translations with context %}
   {{ translations.translations_for(article) }}
-</footer><!-- /.post-info -->
+</footer>
