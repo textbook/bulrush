@@ -20,6 +20,9 @@ into drop-down "burger menu" on mobile.
 Cards][6] meta tags, giving enhanced display when sharing articles on social
 media sites (**note**: *currently only available for [articles and pages][7]*).
 
+ - [x] **Printable layouts** - the navigation is hidden when printed, avoiding
+wasted space.
+
 Additional Screenshots
 ----------------------
 
