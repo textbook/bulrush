@@ -23,6 +23,9 @@ media sites (**note**: *currently only available for [articles and pages][7]*).
  - [x] **Printable layouts** - the navigation is hidden when printed, avoiding
 wasted space.
 
+ - [x] **Custom styling** - additional CSS files can be included to customise
+the default styling.
+
 Additional Screenshots
 ----------------------
 
@@ -64,6 +67,24 @@ Appropriate icons are provided in the sidebar for a range of sites in the
 `SOCIAL` link list. Have a look in [`social.html`][17] to see which titles this
 applies to.
 
+Custom Styling
+--------------
+
+If any of the entries in `EXTRA_PATH_METADATA` have `'path'`s ending with
+`'.css'` they will be included in the base template, allowing the site style
+to be overridden as required. For example, in your `pelicanconf.py`:
+
+```python
+# Static files
+STATIC_PATHS = [
+    'extra',
+    ...
+]
+EXTRA_PATH_METADATA = {
+    'extra/custom.css': {'path': 'custom.css'},
+    ...
+}
+```
 
 Requirements
 ------------
