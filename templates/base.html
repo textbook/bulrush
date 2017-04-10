@@ -9,6 +9,9 @@
   {% assets filters="less", output="css/main.%(version)s.css", "css/main.less" %}
     <link rel="stylesheet" href="{{ SITEURL }}/{{ ASSET_URL }}">
   {% endassets %}
+  {% assets filters="less", output="css/highlight.%(version)s.css", "css/highlight.less" %}
+    <link rel="stylesheet" href="{{ SITEURL }}/{{ ASSET_URL }}">
+  {% endassets %}
   {% assets "css/print.css" %}
     <link rel="stylesheet" href="{{ SITEURL }}/{{ ASSET_URL }}" media="print">
   {% endassets %}
