@@ -3,9 +3,28 @@
 @darker-grey: #363636;
 @primary: #00d1b2;
 
-.section {
-  p, ul, ol {
+article .section {
+  p, ul, ol, li {
     margin-bottom: 0.5em;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  h1, h2 {
+    color: @darker-grey;
+    font-weight: 500;
+    line-height: 1.125;
+    margin: 1.5rem 0 1rem 0;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
   }
 
   blockquote, .highlight {
@@ -21,7 +40,6 @@
 
   li {
     margin-left: 2em;
-    margin-bottom: 0.25em;
   }
 
   ol li {
