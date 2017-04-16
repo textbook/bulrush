@@ -75,43 +75,50 @@ footer.footer {
     vertical-align: baseline;
   }
 
-  .github-fork-ribbon > a:not(.icon) {
-    border: 1px dotted @grey;
-    color: @grey;
-    display: inline-block;
-    text-decoration: none;
-    width: 250px;
+  .github-fork-ribbon-wrapper {
+    bottom: 0;
+    height: 150px;
+    overflow: hidden;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    width: 150px;
 
-    &:hover {
-      background-color: @grey;
-      border: 1px solid @grey;
-      color: @primary;
+    .github-fork-ribbon {
+      background-color: @primary;
+      padding: 1px 0;
+      pointer-events: auto;
+      position: absolute;
+      right: -65px;
+      top: 65px;
+      -webkit-transform: rotate(315deg);
+      -ms-transform: rotate(315deg);
+      transform: rotate(315deg);
+
+      a {
+        border: 2px dotted @grey;
+        color: @grey;
+        display: inline-block;
+        font-size: 0.9rem;
+        text-decoration: none;
+        padding-left: 32px;
+        width: 250px;
+      }
+
+      &:hover {
+        background-color: @grey;
+
+        a {
+          background-color: @grey;
+          border-color: @primary;
+          color: @primary;
+        }
+      }
     }
   }
 }
 
-.github-fork-ribbon-wrapper {
-  bottom: 0;
-  height: 150px;
-  overflow: hidden;
-  pointer-events: none;
-  position: absolute;
-  right: 0;
-  width: 150px;
 
-  .github-fork-ribbon {
-    background-color: @primary;
-    padding: 1px 0;
-    pointer-events: auto;
-    position: absolute;
-    right: -65px;
-    text-align: center;
-    top: 65px;
-    -webkit-transform: rotate(315deg);
-    -ms-transform: rotate(315deg);
-    transform: rotate(315deg);
-  }
-}
 
 .card.is-fullheight {
   height: 100%;
