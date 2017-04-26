@@ -121,6 +121,20 @@ JINJA_ENVIRONMENT = {
 }
 ```
 
+In use
+------
+
+Here are few current users of Bulrush (or modified versions of it):
+
+ - [textbook](http://blog.jonrshar.pe/)
+ - [Simon Says](https://simonsays.neocities.org/)
+ - [CodeRobot](http://coderobot.downley.net/)
+ - [chair6.net](http://chair6.net/)
+ - [Numbers and Things](http://ryanarichmond.com/)
+
+If you'd like to be featured here (or are and would prefer not to be), feel
+free to submit a [pull request][18].
+
   [1]: http://bulma.io/
   [2]: http://docs.getpelican.com/en/stable/
   [3]: http://fontawesome.io/
@@ -138,3 +152,4 @@ JINJA_ENVIRONMENT = {
   [15]: https://github.com/getpelican/pelican-plugins/tree/master/assets
   [16]: http://lesscss.org/
   [17]: https://github.com/textbook/bulrush/blob/master/templates/social.html
+  [18]: https://help.github.com/articles/about-pull-requests/
