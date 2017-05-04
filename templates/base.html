@@ -69,6 +69,9 @@
 
     <div class="column is-one-quarter-desktop is-one-third-tablet is-hidden-print">
       <aside class="menu">
+        {% if MAILCHIMP %}
+          {%  include 'mailchimp.html' %}
+        {% endif %}
         {% if (pages and DISPLAY_PAGES_ON_MENU) or FEED_ALL_ATOM or FEED_ALL_RSS %}
           <p class="menu-label">Other Pages</p>
           <ul class="menu-list">
