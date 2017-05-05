@@ -1,4 +1,4 @@
-<meta property="og:title" content="{{ SITENAME }}{% if item.title %} - {{ item.title }}{% endif %}">
+<meta property="og:title" content="{{ SITENAME }}{% if item.title %} - {{ item.title|striptags }}{% endif %}">
 {% if item.summary %}
   <meta property="og:description" content="{{ item.summary | striptags | truncate(200, end='...') }}">
 {% endif %}
