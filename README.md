@@ -91,8 +91,13 @@ MAILCHIMP = dict(
     domain='user.region.list-manage.com',
     user_id='abc123',
     list_id='def456',
+    validation=True,  # enable jQuery validation
 )
 ```
+
+If you set `validation=False` (or leave it out entirely) you will reduce the
+page load (as it won't need 140KB of JavaScript) but won't get inline form
+submission or email validation.
 
 You can also add `rewards_url`, providing your unique [MonkeyRewards][19] URL,
 to enable a *"Powered by MailChimp"* link.
