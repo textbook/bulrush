@@ -160,7 +160,7 @@ Here are few current users of Bulrush (or modified versions of it):
  - [Simon Says](https://simonsays.neocities.org/)
  - [CodeRobot](http://coderobot.downley.net/)
  - [chair6.net](http://chair6.net/)
- - [Numbers and Things](http://ryanarichmond.com/)
+ - [Just Numbers and Things](http://justnumbersandthings.com/)
 
 If you'd like to be featured here (or are and would prefer not to be), feel
 free to submit a [pull request][18].
