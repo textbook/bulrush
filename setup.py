@@ -20,6 +20,7 @@ setup(
         ]
     },
     packages=['bulrush'],
+    test_suite='tests',
     url='https://github.com/textbook/bulrush',
     version='0.0.2',
 )
