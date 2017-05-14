@@ -3,11 +3,16 @@
   <meta property="og:description" content="{{ item.summary | striptags | truncate(200, end='...') }}">
 {% endif %}
 <meta property="og:url" content="{{ SITEURL }}/{{ item.url }}">
-{% if AVATAR %}
-  <meta property="og:image" content="{{ SITEURL }}/images/{{ AVATAR }}">
-
-  <meta name="twitter:image:alt" content="{{ SITENAME }}{% if SITESUBTITLE %} | {{ SITESUBTITLE }}{% endif %}">
-{% endif %}
+{% with images=(item.content | images) %}
+  {% if images %}
+    <meta property="og:image" content="{{ images[0] }}">
+  {% elif AVATAR %}
+    <meta property="og:image" content="{{ SITEURL }}/images/{{ AVATAR }}">
+  {% endif %}
+  {% if images or AVATAR %}
+    <meta name="twitter:image:alt" content="{{ SITENAME }}{% if SITESUBTITLE %} | {{ SITESUBTITLE }}{% endif %}">
+  {% endif %}
+{% endwith %}
 <meta name="twitter:card" content="summary">
 {% if TWITTER_USERNAME %}
   <meta name="twitter:creator" content="@{{ TWITTER_USERNAME }}">
