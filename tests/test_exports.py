@@ -13,8 +13,7 @@ class ExportTest(TestCase):
 
     def test_filters(self):
         self.assertIn('images', bulrush.FILTERS)
-        images = bulrush.FILTERS['images']('<img src="foo.bar.baz">')
-        self.assertEqual(images, ['foo.bar.baz'])
+        self.assertIs(bulrush.FILTERS['images'], bulrush.extract_images)
 
     def test_path(self):
         expected = Path(__file__).parent.parent.joinpath('bulrush')

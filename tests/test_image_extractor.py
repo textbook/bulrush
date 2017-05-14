@@ -1,23 +1,20 @@
 from unittest import TestCase
 
-from bulrush import ImageExtractor
+from bulrush import extract_images
 
 
 class ImageExtractorTest(TestCase):
 
-    def setUp(self):
-        self.extractor = ImageExtractor()
-
     def test_no_image(self):
-        result = self.extractor.images('<h1>No images here</h1>')
+        result = extract_images('<h1>No images here</h1>')
         self.assertEqual(result, [])
 
     def test_only_image(self):
-        result = self.extractor.images('<img src="hello.world">')
+        result = extract_images('<img src="hello.world">')
         self.assertEqual(result, ['hello.world'])
 
     def test_complex_with_images(self):
-        result = self.extractor.images('''
+        result = extract_images('''
         <!DOCTYPE html>
         <html lang="en">
         <head>
