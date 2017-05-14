@@ -16,5 +16,5 @@ class ExportTest(TestCase):
         self.assertIs(bulrush.FILTERS['images'], bulrush.extract_images)
 
     def test_path(self):
-        expected = Path(__file__).parent.parent.joinpath('bulrush')
-        self.assertEqual(bulrush.PATH, expected.as_posix())
+        expected = str(Path(__file__).parent.parent.joinpath('bulrush'))
+        self.assertEqual(bulrush.PATH, expected)
