@@ -1,8 +1,10 @@
 language: python
 python:
 - '3.5'
-script:
+install:
 - python setup.py install
+script:
+- python setup.py test
 deploy:
   - provider: pypi
     user: $PYPI_USERNAME
