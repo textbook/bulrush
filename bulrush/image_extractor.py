@@ -6,22 +6,18 @@ class ImageExtractor(HTMLParser):
 
     def __init__(self, *, convert_charrefs=True):
         super().__init__(convert_charrefs=convert_charrefs)
-        self._images = []
+        self.images = []
 
     def handle_starttag(self, tag, attrs):
-        if tag != 'img':
-            return
-        for attr, val in attrs:
-            if attr == 'src':
-                self._images.append(val)
-                break
+        if tag == 'img':
+            self._extract_source_attr(attrs)
 
-    def feed(self, data):
-        super().feed(data)
-        return self
+    def _extract_source_attr(self, attrs):
+        self.images.append(next(val for attr, val in attrs if attr == 'src'))
 
-    @classmethod
-    def images(cls, article_content):
-        extractor = cls()
-        extractor.feed(article_content)
-        return extractor._images
+
+def extract_images(article_content):
+    """Extract the sources of all images in the article."""
+    extractor = ImageExtractor()
+    extractor.feed(article_content)
+    return extractor.images
