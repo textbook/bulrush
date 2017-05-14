@@ -29,6 +29,65 @@ the default styling.
  - [x] **Service integrations** - including Disqus, GitHub, Google Analytics
 and MailChimp.
 
+ - [x] **PyPI package available** - so it can be `pip install`-ed.
+
+Installation
+------------
+
+Bulrush is available via the [Python Package Index][22], so you can install it
+with:
+
+```bash
+pip install bulrush
+```
+
+The main exports from the module are:
+
+ - `PATH`: the path to the theme;
+ - `FILTERS`: the additional Jinja filters used by the theme; and
+ - `ENVIRONMENT`: the Jinja environment required by the theme.
+
+You can use them in your `pelicanconf.py` as follows:
+
+```python
+import bulrush
+
+THEME = bulrush.PATH
+JINJA_ENVIRONMENT = bulrush.ENVIRONMENT
+JINJA_FILTERS = bulrush.FILTERS
+```
+
+### Other Requirements
+
+The main stylesheet is provided in [Less][16] format, so you will need the Less
+compiler (`lessc`). An easy way to install this is:
+
+```bash
+npm install -g less
+```
+
+You also need to make the appropriate Pelican plugin, [`assets`][15], available.
+One way of achieving this is to make the `pelican-plugin` repository a submodule
+of your site, then you can add to your `pelicanconf.py`:
+
+```python
+PLUGIN_PATHS = ['pelican-plugins']
+PLUGINS = ['assets']
+```
+
+### Alternative
+
+If you don't want to install the theme from PyPI you can simply give Pelican a
+relative path to the inner `bulrush/` directory. For example, add `bulrush` as
+a submodule and set:
+
+```python
+THEME = 'bulrush/bulrush'
+```
+
+In this case you will need to configure the environment and filters yourself
+and ensure that `webassets` *is* installed from PyPI.
+
 Additional Screenshots
 ----------------------
 
@@ -121,41 +180,6 @@ EXTRA_PATH_METADATA = {
 }
 ```
 
-Requirements
-------------
-
-This theme requires an additional Python dependency, [`webassets`][9], which can
-be added to your project with:
-
-```bash
-pip install webassets
-```
-
-The main stylesheet is provided in [Less][16] format, so you will need the Less
-compiler (`lessc`). An easy way to install this is:
-
-```bash
-npm install -g less
-```
-
-You also need to make the appropriate Pelican plugin, [`assets`][15], available.
-One way of achieving this is to make the `pelican-plugin` repository a submodule
-of your site, then you can add to your `pelicanconf.py`:
-
-```python
-PLUGIN_PATHS = ['pelican-plugins']
-PLUGINS = ['assets']
-```
-
-It also requires two Jinja plugins, `webassets` and [the `with` statement][8].
-To implement this, I have the following in my `pelicanconf.py`:
-
-```python
-JINJA_ENVIRONMENT = {
-    'extensions': ['webassets.ext.jinja2.AssetsExtension', 'jinja2.ext.with_'],
-}
-```
-
 In use
 ------
 
@@ -192,3 +216,4 @@ free to submit a [pull request][18].
   [19]: http://kb.mailchimp.com/accounts/billing/add-or-remove-monkeyrewards
   [20]: http://eepurl.com/cNv6Rb
   [21]: http://kb.mailchimp.com/lists/signup-forms/add-a-signup-form-to-your-website
+  [22]: https://pypi.python.org/pypi/bulrush
