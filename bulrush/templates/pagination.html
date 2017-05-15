@@ -1,23 +1,21 @@
 <nav class="pagination is-centered">
   {% if articles_page.has_previous() %}
     <a class="pagination-previous"
-      href="{{ SITEURL }}/{{ articles_previous_page.url }}">
-    Previous
-  </a>
+       href="{{ SITEURL }}/{{ articles_previous_page.url }}">
+      Previous
+    </a>
   {% else %}
-    <a class="pagination-previous is-disabled"
-      href="#">
-    Previous
-  </a>
+    <a class="pagination-previous" href="#" disabled>
+      Previous
+    </a>
   {% endif %}
   {% if articles_page.has_next() %}
     <a class="pagination-next"
-        href="{{ SITEURL }}/{{ articles_next_page.url }}">
+       href="{{ SITEURL }}/{{ articles_next_page.url }}">
       Next page
     </a>
   {% else %}
-    <a class="pagination-next is-disabled"
-        href="#">
+    <a class="pagination-next" href="#" disabled>
       Next page
     </a>
   {% endif %}

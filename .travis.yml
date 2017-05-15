@@ -12,4 +12,3 @@ deploy:
     distributions: "sdist bdist_wheel"
     on:
       tags: true
-      branch: module
