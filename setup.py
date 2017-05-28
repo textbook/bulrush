@@ -10,7 +10,7 @@ setup(
         'Programming Language :: Python :: 3 :: Only',
     ],
     description='Bulrush theme for Pelican',
-    install_requires=['webassets'],
+    install_requires=['markupsafe', 'webassets'],
     license='ISC',
     name='bulrush',
     package_data={
@@ -22,6 +22,7 @@ setup(
     },
     packages=['bulrush'],
     test_suite='tests',
+    tests_require=['pelican'],
     url='https://github.com/textbook/bulrush',
-    version='0.0.5',
+    version='0.0.6',
 )
