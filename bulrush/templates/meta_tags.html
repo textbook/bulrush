@@ -18,3 +18,19 @@
   <meta name="twitter:creator" content="@{{ TWITTER_USERNAME }}">
   <meta name="twitter:site" content="@{{ TWITTER_USERNAME }}">
 {% endif %}
+<meta property="og:site_name" content="{{ SITENAME }}">
+<meta property="og:type" content="article">
+{% if item.date %}
+  <meta property="article:published" content="{{ item.date.isoformat() }}">
+{% endif %}
+{% if item.modified %}
+  <meta property="article:published" content="{{ item.modified.isoformat() }}">
+{% endif %}
+{% if item.tags %}
+  {% for tag in item.tags %}
+    <meta property="article:tags" content="{{ tag.name }}">
+  {% endfor %}
+{% endif %}
+{% if item.category %}
+  <meta property="article:section" content="{{ item.category.name }}">
+{% endif %}
