@@ -114,6 +114,10 @@
         {% if SOCIAL %}
           {% include 'social.html' %}
         {% endif %}
+        {% if LICENSE %}
+          <p class="menu-label">License</p>
+          {{ LICENSE | license | safe }}
+        {% endif %}
       </aside>
     </div>
   </div>

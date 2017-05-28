@@ -1,6 +1,7 @@
 from pathlib import Path
 
 from .image_extractor import extract_images
+from .license_generator import generate_license
 
 
 ENVIRONMENT = {
@@ -9,7 +10,10 @@ ENVIRONMENT = {
 """The required Jinja environment for the Bulrush theme."""
 
 
-FILTERS = dict(images=extract_images)
+FILTERS = dict(
+    images=extract_images,
+    license=generate_license,
+)
 """The filters defined by the Bulrush theme."""
 
 

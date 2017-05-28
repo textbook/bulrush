@@ -114,6 +114,7 @@ your `pelicanconf.py`:
 | `DISQUS_SITENAME` | Enables Disqus comments. Note that you should set up the full Comment Count Link, as no additional text is applied. |
 | `GITHUB_URL` | Enables the "Fork me on GitHub" ribbon. |
 | `GOOGLE_ANALYTICS` | Set to `‘UA-XXXX-YYYY’` to activate Google Analytics. |
+| `LICENSE` | A string or dictionary describing the license for the site; see details below. |
 | `LINKS` | A list of tuples `('Title', 'URL')` for links to appear in the "blogroll" section of the sidebar. |
 | `MAILCHIMP` | Configure to activate a [MailChimp][20] sign-up form; see details below. |
 | `MENUITEMS` | A list of tuples `('Title', 'URL')` for items to appear in the tabbed navigation. |
@@ -160,6 +161,24 @@ submission or email validation.
 
 You can also add `rewards_url`, providing your unique [MonkeyRewards][19] URL,
 to enable a *"Powered by MailChimp"* link.
+
+### License Settings
+
+You can provide one of two options to specify the license for your content:
+
+ - License name (`str`): The name of the license to display. Unless otherwise
+   specified, a default icon ([`file-text-o`][23]) will be used and the entry
+   will link to the current page.
+
+   Creative Commons license names (e.g. `'CC BY-SA 4.0'`) are automatically
+   recognised and an appropriate icon and link are generated.
+
+ - License definition (`dict`): A dictionary specifying the `name`, `url` and
+   optional `icon` (must be a Font Awesome icon name, default is
+   [`file-text-o`][23]).
+
+The license details will be displayed at the bottom of the sidebar on every
+page.
 
 Custom Styling
 --------------
@@ -217,3 +236,4 @@ free to submit a [pull request][18].
   [20]: http://eepurl.com/cNv6Rb
   [21]: http://kb.mailchimp.com/lists/signup-forms/add-a-signup-form-to-your-website
   [22]: https://pypi.python.org/pypi/bulrush
+  [23]: http://fontawesome.io/icon/file-text-o/

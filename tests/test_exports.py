@@ -14,6 +14,8 @@ class ExportTest(TestCase):
     def test_filters(self):
         self.assertIn('images', bulrush.FILTERS)
         self.assertIs(bulrush.FILTERS['images'], bulrush.extract_images)
+        self.assertIn('license', bulrush.FILTERS)
+        self.assertIs(bulrush.FILTERS['license'], bulrush.generate_license)
 
     def test_path(self):
         expected = str(Path(__file__).parent.parent.joinpath('bulrush'))
