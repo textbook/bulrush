@@ -23,6 +23,8 @@
           <i class="fa fa-lastfm fa-fw"></i>
         {% elif title|lower == 'stack overflow' %}
           <i class="fa fa-stack-overflow fa-fw"></i>
+        {% elif link.startswith('mailto:') %}
+          <i class="fa fa-envelope fa-fw"></i>
         {% else %}
           <i class="fa fa-globe fa-fw"></i>
         {% endif %}

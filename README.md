@@ -131,7 +131,13 @@ in the sidebar with any `SOCIAL` or other `LINKS`.
 
 Appropriate icons are provided in the sidebar for a range of sites in the
 `SOCIAL` link list. Have a look in [`social.html`][17] to see which titles this
-applies to.
+applies to. If none of the sites are a match, then:
+
+ - if the second, URL element in the tuple starts with `'mailto:'`, an envelope
+   icon is used; otherwise
+ - a globe icon is used.
+
+ ![Screenshot - Social icons in sidebar][24]
 
 ### MailChimp Configuration
 
@@ -237,3 +243,4 @@ free to submit a [pull request][18].
   [21]: http://kb.mailchimp.com/lists/signup-forms/add-a-signup-form-to-your-website
   [22]: https://pypi.python.org/pypi/bulrush
   [23]: http://fontawesome.io/icon/file-text-o/
+  [24]: ./screenshot-social.png
