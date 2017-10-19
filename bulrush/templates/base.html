@@ -6,12 +6,10 @@
   <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.1/css/bulma.min.css">
-  {% assets filters="less", output="css/main.%(version)s.css", "css/main.less" %}
+  {% assets filters="less,yui_css", output="css/main.%(version)s.css", "css/main.less" %}
     <link rel="stylesheet" href="{{ SITEURL }}/{{ ASSET_URL }}">
   {% endassets %}
-  {% assets "css/print.css" %}
-    <link rel="stylesheet" href="{{ SITEURL }}/{{ ASSET_URL }}" media="print">
-  {% endassets %}
+  <style media="print">.is-hidden-print{display:none !important}</style>
   {% for extra_path in EXTRA_PATH_METADATA.values() %}
     {% if extra_path.get('path', '').endswith('.css') %}
       <link rel="stylesheet" href="{{ SITEURL }}/{{ extra_path['path'] }}">

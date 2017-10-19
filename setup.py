@@ -10,13 +10,12 @@ setup(
         'Programming Language :: Python :: 3 :: Only',
     ],
     description='Bulrush theme for Pelican',
-    install_requires=['markupsafe', 'webassets'],
+    install_requires=['markupsafe', 'webassets', 'yuicompressor'],
     license='ISC',
     name='bulrush',
     package_data={
         'bulrush': [
             'templates/*.html',
-            'static/css/*.css',
             'static/css/*.less',
         ]
     },
@@ -24,5 +23,5 @@ setup(
     test_suite='tests',
     tests_require=['pelican'],
     url='https://github.com/textbook/bulrush',
-    version='0.0.9',
+    version='0.1.0',
 )
