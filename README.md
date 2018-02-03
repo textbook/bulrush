@@ -75,6 +75,9 @@ PLUGIN_PATHS = ['pelican-plugins']
 PLUGINS = ['assets']
 ```
 
+**Note**: referencing the Pelican plugins in this way may have implications for
+the license of your project. See https://github.com/textbook/bulrush/issues/17.
+
 ### Alternative
 
 If you don't want to install the theme from PyPI you can simply give Pelican a
