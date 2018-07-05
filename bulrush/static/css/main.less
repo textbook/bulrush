@@ -77,8 +77,28 @@ article .section {
 footer.footer {
   position: relative;
 
-  .icon.is-small {
-    vertical-align: baseline;
+  .credits {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+    > * {
+      display: inline-block;
+      padding: 0 0.5rem;
+
+      &:not(:last-child) {
+        border-right: 1px solid @darker-grey;
+      }
+
+      &.badge {
+        height: 1.5rem;
+        padding-left: 0;
+      }
+    }
+
+    .icon.is-small {
+      vertical-align: baseline;
+    }
   }
 
   .github-fork-ribbon-wrapper {

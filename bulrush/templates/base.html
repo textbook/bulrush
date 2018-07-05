@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width">
   <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.1/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
   {% assets filters="less,yui_css", output="css/main.%(version)s.css", "css/main.less" %}
     <link rel="stylesheet" href="{{ SITEURL }}/{{ ASSET_URL }}">
   {% endassets %}
@@ -23,9 +23,9 @@
 <header class="hero is-primary">
   <div class="hero-head">
     <div class="container">
-      <nav class="nav">
-        <div class="nav-left">
-          <a class="nav-item is-brand title is-3{% if output_file == "index.html" %} is-active{% endif %}"
+      <nav class="navbar">
+        <div class="navbar-brand">
+          <a class="navbar-item title is-3{% if output_file == "index.html" %} is-active{% endif %}"
              href="{{ SITEURL }}/">{{ SITENAME }}</a>
         </div>
       </nav>
@@ -33,24 +33,26 @@
   </div>
 </header>
 
-<nav class="nav has-shadow is-hidden-print">
+<nav class="navbar has-shadow is-hidden-print">
   <div class="container">
-    <div class="nav-center"></div>
-    <span id="navToggle" class="nav-toggle">
+    <div class="navbar-center"></div>
+    <span id="navToggle" class="navbar-burger">
       <span></span>
       <span></span>
       <span></span>
     </span>
-    <div id="navMenu" class="nav-right nav-menu">
-      {% for title, link in MENUITEMS|reverse %}
-        <a class="nav-item is-tab" href="{{ link }}">{{ title }}</a>
-      {% endfor %}
-      {% if DISPLAY_CATEGORIES_ON_MENU %}
-        {% for cat, null in categories|reverse %}
-          <a class="nav-item is-tab {% if cat == category %}is-active{% endif %}"
-             href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a>
-        {% endfor %}
-      {% endif %}
+    <div id="navMenu" class="navbar-menu">
+        <div class="navbar-end">
+          {% for title, link in MENUITEMS|reverse %}
+            <a class="navbar-item is-tab" href="{{ link }}">{{ title }}</a>
+          {% endfor %}
+          {% if DISPLAY_CATEGORIES_ON_MENU %}
+            {% for cat, null in categories|reverse %}
+              <a class="navbar-item is-tab {% if cat == category %}is-active{% endif %}"
+                 href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a>
+            {% endfor %}
+          {% endif %}
+        </div>
     </div>
   </div>
 </nav>
@@ -121,11 +123,13 @@
 <footer class="footer">
   <div class="container has-text-centered">
     {% if SITESUBTITLE %} <p class="subtitle">{{ SITESUBTITLE }}</p>{% endif %}
-    <p><a href="https://github.com/textbook/bulrush">Bulrush</a> theme for
-        <a href="https://blog.getpelican.com/">Pelican</a>
-      | <span class="icon is-small"><i class="fa fa-html5"></i></span> HTML 5
-      | <span class="icon is-small"><i class="fa fa-css3"></i></span> CSS 3
-    </p>
+    <div class="credits">
+      <span><a href="https://github.com/textbook/bulrush">Bulrush</a> theme for
+        <a href="https://blog.getpelican.com/">Pelican</a></span>
+      <span><span class="icon is-small"><i class="fa fa-html5"></i></span> HTML 5</span>
+      <span><span class="icon is-small"><i class="fa fa-css3"></i></span> CSS 3</span>
+      <img class="badge" src="https://bulma.io/images/made-with-bulma--black.png">
+    </div>
   </div>
   {% include 'github.html' %}
 </footer>
@@ -136,10 +140,10 @@
   document.getElementById('navToggle').addEventListener('click', function () {
     var nav = document.getElementById('navMenu');
     var className = nav.getAttribute('class');
-    if (className == 'nav-right nav-menu') {
-      nav.className = 'nav-right nav-menu is-active';
+    if (className == 'navbar-menu') {
+      nav.className = 'navbar-menu is-active';
     } else {
-      nav.className = 'nav-right nav-menu';
+      nav.className = 'navbar-menu';
     }
   });
 </script>
