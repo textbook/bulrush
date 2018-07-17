@@ -1,4 +1,9 @@
+from os import path
 from setuptools import setup
+
+here = path.abspath(path.dirname(__file__))
+with open('{}/README.md'.format(here)) as readme:
+    long_description = readme.read()
 
 setup(
     author='Jonathan Sharpe',
@@ -12,6 +17,8 @@ setup(
     description='Bulrush theme for Pelican',
     install_requires=['markupsafe', 'webassets', 'yuicompressor'],
     license='ISC',
+    long_description=long_description,
+    long_description_content_type='text/markdown',
     name='bulrush',
     package_data={
         'bulrush': [
@@ -23,5 +30,5 @@ setup(
     test_suite='tests',
     tests_require=['pelican'],
     url='https://github.com/textbook/bulrush',
-    version='0.2.0',
+    version='0.2.1',
 )
