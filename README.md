@@ -219,6 +219,7 @@ Here are few current users of Bulrush (or modified versions of it):
  - [chair6.net](http://chair6.net/)
  - [Just Numbers and Things](http://justnumbersandthings.com/)
  - [بلاگ باهم](https://baaham.net/blog/) (in Persian!)
+ - [Small Data](https://smalldata.dev/about.html)
 
 If you'd like to be featured here (or are and would prefer not to be), feel
 free to submit a [pull request][18].
