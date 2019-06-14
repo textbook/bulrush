@@ -134,3 +134,5 @@ ENV/
 # Rope project settings
 .ropeproject
 
+# Compiled CSS
+bulrush/static/css/*.css

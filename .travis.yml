@@ -1,10 +1,14 @@
+dist: xenial
 language: python
 python:
-- '3.5'
+  - '3.7'
 install:
-- python setup.py install
+  - python setup.py install
+  - npm install -g less
 script:
-- python setup.py test
+  - python setup.py test
+before_deploy:
+  - lessc ./bulrush/static/css/main.less ./bulrush/static/css/main.css
 deploy:
   - provider: pypi
     user: $PYPI_USERNAME
