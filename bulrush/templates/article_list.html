@@ -1,9 +1,9 @@
 {% if article_list %}
   <div class="is-hidden-print">
-    <h2 class="subtitle">Other articles</h2>
+    <h1 class="title">Articles</h2>
     <div class="columns is-multiline">
       {% for article in article_list %}
-        <div class="column is-half-tablet is-one-third-desktop">
+        <div class="column is-half-tablet is-full-desktop">
           <div class="card is-fullwidth is-fullheight">
             <div class="card-content">
               <a href="{{ SITEURL }}/{{ article.url }}">
@@ -11,7 +11,6 @@
                 <div class="heading subtitle">{{ article.locale_date }}</div>
                 <div><p>{{ article.summary | striptags | truncate(120, end='...<br />') }}</p></div>
               </a>
-              {% include 'comments.html' %}
             </div>
           </div>
         </div>
