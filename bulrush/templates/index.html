@@ -1,7 +1,14 @@
 {% extends "base.html" %}
 {% block content_title %}{% endblock %}
+{% if INDEX_DESCRIPTION %}
+{% block metadescription %}
+<meta name="description" content="{{ INDEX_DESCRIPTION }}">
+{% endblock %}
+
+
+{% endif %}
 {% block content %}
-  {% if articles and not articles_page.has_previous() %}
+  {% if articles and not articles_page.has_previous() and False %}
     {% with article = articles[0] %}
       <aside id="featured" class="body">
         <article>
@@ -10,13 +17,13 @@
           </h1>
           {% include 'article_infos.html' %}
           <div class="section">
-            {{ article.content }}
+            {{ article.summary }}
             {% include 'comments.html' %}
           </div>
         </article>
       </aside>
     {% endwith %}
-    {% with article_list = articles_page.object_list[1:] %}
+    {% with article_list = articles_page.object_list %}
       {% include 'article_list.html' %}
     {% endwith %}
   {% else %}
