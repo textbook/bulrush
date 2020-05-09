@@ -1,0 +1,15 @@
+{% if article.share_post and article.status != 'draft' %}
+<section>
+    <p id="post-share-links">
+        Share on:
+        <a href="{{article.share_post['twitter']}}" target="_blank" title="Share on Twitter"
+            style="color: #0084b4">Twitter</a>
+        |
+        <a href="{{article.share_post['facebook']}}" target="_blank" title="Share on Facebook"
+            style="color: #3B5998">Facebook</a>
+        |
+        <a href="{{article.share_post['email']}}" target="_blank" title="Share via Email"
+            style="color: #d34836">Email</a>
+    </p>
+</section>
+{% endif %}

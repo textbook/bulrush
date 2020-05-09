@@ -1,16 +1,22 @@
 {% extends "base.html" %}
 {% block title %}{{ page.title|striptags }}{% endblock %}
+{% if page.summary %}
+{% block metadescription %}
+<meta name="description" content="{{ page.summary | striptags | truncate(200, end='...') }}">
+<meta name="author" content="{{ SITE_AUTHOR }}">
+{% endblock %}
+{% endif %}
 {% block tags %}
-  {% with item=page %}
-    {% include 'meta_tags.html' %}
-  {% endwith %}
+{% with item=page %}
+{% include 'meta_tags.html' %}
+{% endwith %}
 {% endblock %}
 {% block content %}
-  <section id="content" class="body">
-    <h1 class="title"><a href="{{ SITEURL }}/{{ page.url }}" rel="bookmark"
-       title="Permalink to {{ page.title|striptags }}">{{ page.title }}</a></h1>
-    {% import 'translations.html' as translations with context %}
-    {{ translations.translations_for(page) }}
-    <div class="section">{{ page.content }}</div>
-  </section>
+<section id="content" class="body">
+  <h1 class="title"><a href="{{ SITEURL }}/{{ page.url }}" rel="bookmark"
+      title="Permalink to {{ page.title|striptags }}">{{ page.title }}</a></h1>
+  {% import 'translations.html' as translations with context %}
+  {{ translations.translations_for(page) }}
+  <div class="section">{{ page.content }}</div>
+</section>
 {% endblock %}
