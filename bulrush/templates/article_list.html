@@ -8,9 +8,14 @@
           <div class="card-content">
             <a href="{{ SITEURL }}/{{ article.url }}">
               <h3 class="title is-5">{{ article.title }}</h3>
-              <div class="heading subtitle">{{ article.locale_date }}</div>
+              <div class="heading subtitle">{{ article.locale_date }}
+                {% if 'post_stats' in PLUGINS %}
+                &#8226; <b>{{ article.stats['read_mins'] }} min read</b>
+                {% endif %}
+              </div>
               <div>
-                <p>{{ article.summary | striptags | truncate(120, end='...<br />') }}</p>
+                <p>
+                  {{ article.summary | striptags | truncate(120, end='...<br />') }}</p>
               </div>
             </a>
             <!-- {% include 'comments.html' %} -->

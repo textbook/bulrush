@@ -20,6 +20,9 @@
       {% endfor %}</em>
     {% include 'taglist.html' %}
   </p>
+  {% if 'post_stats' in PLUGINS %}
+  <b>{{ article.stats['read_mins'] }} min read</b>
+  {% endif %}
   {% endif %}
   {% import 'translations.html' as translations with context %}
   {{ translations.translations_for(article) }}
