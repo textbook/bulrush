@@ -13,7 +13,7 @@
   <p class="author">
     <em>by {% for author in article.authors %}
       {% if author.url %}
-      <a class="url fn" href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>
+      <a class="url fn" href="{{ SITEURL }}/{{ 'about' }}">{{ author }}</a>
       {% else %}
       {{ author }}
       {% endif %}
