@@ -5,6 +5,7 @@
   <!-- Basic Metas -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width">
+  <meta name="google-site-verification" content="qgX-LJLtkvIk5WkHJP5FSa31RN98a1WhAjPK8w8JPxE" />
   {% if article %}
   <link rel="canonical" href="{{ SITEURL }}/{{ article.url }}" />
   {% endif%}
@@ -106,6 +107,8 @@
           {% if SOCIAL or FEED_ALL_ATOM or FEED_ALL_RSS %}
           {% include 'social.html' %}
           {% endif %}
+          <br>
+          {% include 'partials/sidebar_ad.html'%}
           {% if LICENSE %}
           <p class="menu-label">License</p>
           {{ LICENSE | license | safe }}
@@ -127,6 +130,8 @@
 
   {% include 'analytics.html' %}
   {% include 'disqus_script.html' %}
+  <script data-ad-client="ca-pub-7054077692941337" async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <script type="text/javascript">
     document.getElementById('navToggle').addEventListener('click', function () {
       var nav = document.getElementById('navMenu');
