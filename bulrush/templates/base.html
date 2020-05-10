@@ -5,6 +5,9 @@
   <!-- Basic Metas -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width">
+  {% if article %}
+  <link rel="canonical" href="{{ SITEURL }}/{{ article.url }}" />
+  {% endif%}
   <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
   {%block metadescription%}{%endblock%}
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">

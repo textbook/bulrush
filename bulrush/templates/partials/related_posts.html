@@ -1,33 +1,19 @@
 <h4 class="title is-4 is-spaced">Related Posts</h4>
 <div class="columns">
     <div class="column is-flex">
-        {% if article.prev_article %}
+        {% if article.related_posts %}
+        {% for related_post in article.related_posts %}
         <div class="card">
             <div class="card-content">
                 <p class="title is-5">
-                    <a href="{{ SITEURL }}/{{ article.prev_article.url }}">{{ article.prev_article.title }}</a>
+                    <a href="{{ SITEURL }}/{{ related_post.url }}">{{ related_post.title }}</a>
                 </p>
                 <p class="subtitle">
-                    {{ article.prev_article.summary }}
+                    {{ related_post.summary }}
                 </p>
             </div>
         </div>
+        {% endfor %}
         {% endif %}
     </div>
-    <div class="column is-flex">
-
-        {% if article.next_article %}
-        <div class="card">
-            <div class="card-content">
-                <p class="title is-5">
-                    <a href="{{ SITEURL }}/{{ article.next_article.url }}">{{ article.next_article.title }}</a>
-                </p>
-                <p class="subtitle">
-                    {{ article.next_article.summary }}
-                </p>
-            </div>
-        </div>
-        {% endif %}
-    </div>
-
 </div>
