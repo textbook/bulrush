@@ -209,7 +209,6 @@ Here are few current users of Bulrush (or modified versions of it):
  - [textbook](http://blog.jonrshar.pe/)
  - [Simon Says](https://simonsays.neocities.org/)
  - [CodeRobot](http://coderobot.downley.net/)
- - [Small Data](https://smalldata.dev/about.html)
  - [Amit Chaudhary](https://amitness.com)
  - [Ayush Kumar Shah](https://shahayush.com)
 
