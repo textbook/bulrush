@@ -10,7 +10,12 @@
           </h1>
           {% include 'article_infos.html' %}
           <div class="section">
-            {{ article.content }}
+            {% if BULRUSH_SHOW_SUMMARY %}
+              {{ article.summary }}
+              <p><a href="{{ SITEURL }}/{{ article.url }}">Read more...</a></p>
+            {% else %}
+              {{ article.content }}
+            {% endif %}
             {% include 'comments.html' %}
           </div>
         </article>

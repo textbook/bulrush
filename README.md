@@ -107,9 +107,10 @@ your `pelicanconf.py`:
 
 | Setting name | What does it do? |
 | --- | --- |
+| `BULRUSH_SHOW_SUMMARY` | A boolean, whether to show a summary rather than full article on index, category and tag pages. Defaults to `False`. |
 | `DISQUS_SITENAME` | Enables Disqus comments. Note that you should set up the full Comment Count Link, as no additional text is applied. |
 | `GITHUB_URL` | Enables the "Fork me on GitHub" ribbon. |
-| `GOOGLE_ANALYTICS` | Set to `‘UA-XXXX-YYYY’` to activate Google Analytics. |
+| `GOOGLE_ANALYTICS` | Set to `'UA-XXXX-YYYY'` to activate Google Analytics. |
 | `LICENSE` | A string or dictionary describing the license for the site; see details below. |
 | `LINKS` | A list of tuples `('Title', 'URL')` for links to appear in the "blogroll" section of the sidebar. |
 | `MAILCHIMP` | Configure to activate a [MailChimp][20] sign-up form; see details below. |

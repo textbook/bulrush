@@ -30,5 +30,5 @@ setup(
     test_suite='tests',
     tests_require=['pelican'],
     url='https://github.com/textbook/bulrush',
-    version='0.3.2',
+    version='0.4.0',
 )
