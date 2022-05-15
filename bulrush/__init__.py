@@ -8,7 +8,7 @@ __all__ = ['ENVIRONMENT', 'FILTERS', 'PATH']
 
 
 ENVIRONMENT = {
-    'extensions': ['webassets.ext.jinja2.AssetsExtension', 'jinja2.ext.with_'],
+    'extensions': ['webassets.ext.jinja2.AssetsExtension'],
 }
 """The required Jinja environment for the Bulrush theme."""
 

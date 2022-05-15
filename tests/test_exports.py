@@ -9,7 +9,6 @@ class ExportTest(TestCase):
     def test_environment(self):
         extensions = bulrush.ENVIRONMENT.get('extensions', [])
         self.assertIn('webassets.ext.jinja2.AssetsExtension', extensions)
-        self.assertIn('jinja2.ext.with_', extensions)
 
     def test_filters(self):
         self.assertIn('images', bulrush.FILTERS)
