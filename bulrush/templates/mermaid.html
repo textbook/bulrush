@@ -9,5 +9,5 @@
     },
   };
 
-  mermaid.initialize({ ...defaults, ...JSON.parse({{ MERMAID | tojson }}) });
+  mermaid.initialize({ ...defaults, ...{{ MERMAID | tojson }} });
 </script>
