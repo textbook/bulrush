@@ -192,7 +192,7 @@ Enables [Mermaid][25] diagram generation on your site, allowing diagrams to be
 written in a Markdown-ish syntax. Simply wrap the code in a `pre` element
 with the `mermaid` class:
 
-```markdown
+```html
 <pre class="mermaid">
 graph TD;
     A-->B;
