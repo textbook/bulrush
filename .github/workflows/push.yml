@@ -20,8 +20,17 @@ jobs:
       - uses: actions/setup-python@v4
         with:
           python-version: '3.11'
+      - run: pip install wheel
       - run: python setup.py install
       - run: python setup.py test
+      - run: npm install --location=global less
+      - run: lessc ./bulrush/static/css/main.less ./bulrush/static/css/main.css
+      - run: python setup.py sdist bdist_wheel
+      - uses: actions/upload-artifact@v3
+        with:
+          if-no-files-found: error
+          name: build-outputs
+          path: dist/*
   deploy:
     runs-on: ubuntu-22.04
     if: startsWith(github.ref, 'refs/tags/v')
@@ -32,10 +41,8 @@ jobs:
       id-token: write
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
+      - uses: actions/upload-artifact@v3
         with:
-          python-version: '3.11'
-      - run: npm install --location=global less
-      - run: lessc ./bulrush/static/css/main.less ./bulrush/static/css/main.css
-      - run: python setup.py sdist bdist_wheel
+          name: build-outputs
+          path: dist/
       - uses: pypa/gh-action-pypi-publish@release/v1
