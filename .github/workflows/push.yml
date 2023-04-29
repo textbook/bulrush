@@ -31,7 +31,24 @@ jobs:
           if-no-files-found: error
           name: build-outputs
           path: dist/*
-  deploy:
+  deploy-github:
+    runs-on: ubuntu-22.04
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: test
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/upload-artifact@v3
+        with:
+          name: build-outputs
+          path: dist/
+      - run: >
+          gh release create
+          '${{ github.ref_name }}'
+          --title '${{ github.ref_name }}'
+          ./dist/*
+        env:
+          GH_TOKEN: ${{ github.token }}
+  deploy-pypi:
     runs-on: ubuntu-22.04
     if: startsWith(github.ref, 'refs/tags/v')
     needs: test
