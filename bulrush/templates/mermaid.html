@@ -1,0 +1,13 @@
+<script type="module">
+  import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+
+  const defaults = {
+    securityLevel: "loose",
+    theme: "default",
+    themeVariables: {
+      fontFamily: 'BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif',
+    },
+  };
+
+  mermaid.initialize({ ...defaults, ...JSON.parse({{ MERMAID | tojson }}) });
+</script>

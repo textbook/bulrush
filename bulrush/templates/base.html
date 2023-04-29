@@ -15,6 +15,9 @@
       <link rel="stylesheet" href="{{ SITEURL }}/{{ extra_path['path'] }}">
     {% endif %}
   {% endfor %}
+  {% if MERMAID %}
+    {% include 'mermaid.html' %}
+  {% endif %}
   {% block tags %}
   {% endblock %}
 </head>

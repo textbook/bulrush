@@ -31,6 +31,8 @@ and MailChimp.
 
  - [x] **PyPI package available** - so it can be `pip install`-ed.
 
+ - [x] **[Mermaid][25] integration** - so you can include generated diagrams.
+
 Installation
 ------------
 
@@ -105,19 +107,20 @@ Settings
 As well as the [basic settings][14], Bulrush supports the following options in
 your `pelicanconf.py`:
 
-| Setting name | What does it do? |
-| --- | --- |
+| Setting name           | What does it do?                                                                                                     |
+|------------------------|----------------------------------------------------------------------------------------------------------------------|
 | `BULRUSH_SHOW_SUMMARY` | A boolean, whether to show a summary rather than full article on index, category and tag pages. Defaults to `False`. |
-| `DISQUS_SITENAME` | Enables Disqus comments. Note that you should set up the full Comment Count Link, as no additional text is applied. |
-| `GITHUB_URL` | Enables the "Fork me on GitHub" ribbon. |
-| `GOOGLE_ANALYTICS` | Set to `'UA-XXXX-YYYY'` to activate Google Analytics. |
-| `LICENSE` | A string or dictionary describing the license for the site; see details below. |
-| `LINKS` | A list of tuples `('Title', 'URL')` for links to appear in the "blogroll" section of the sidebar. |
-| `MAILCHIMP` | Configure to activate a [MailChimp][20] sign-up form; see details below. |
-| `MENUITEMS` | A list of tuples `('Title', 'URL')` for items to appear in the tabbed navigation. |
-| `SITESUBTITLE` | A subtitle to appear in the header. |
-| `SOCIAL` | A list of tuples `('Title', 'URL')` to appear in the "social" section of the sidebar. |
-| `TWITTER_USERNAME` | Enables Twitter meta-tags in the article and page headers. |
+| `DISQUS_SITENAME`      | Enables Disqus comments. Note that you should set up the full Comment Count Link, as no additional text is applied.  |
+| `GITHUB_URL`           | Enables the "Fork me on GitHub" ribbon.                                                                              |
+| `GOOGLE_ANALYTICS`     | Set to `'UA-XXXX-YYYY'` to activate Google Analytics.                                                                |
+| `LICENSE`              | A string or dictionary describing the license for the site; see details below.                                       |
+| `LINKS`                | A list of tuples `('Title', 'URL')` for links to appear in the "blogroll" section of the sidebar.                    |
+| `MAILCHIMP`            | Configure to activate a [MailChimp][20] sign-up form; see details below.                                             |
+| `MERMAID`              | Activate [Mermaid][25] diagram support; see details below.                                                           |
+| `MENUITEMS`            | A list of tuples `('Title', 'URL')` for items to appear in the tabbed navigation.                                    |
+| `SITESUBTITLE`         | A subtitle to appear in the header.                                                                                  |
+| `SOCIAL`               | A list of tuples `('Title', 'URL')` to appear in the "social" section of the sidebar.                                |
+| `TWITTER_USERNAME`     | Enables Twitter meta-tags in the article and page headers.                                                           |
 
 If `DISPLAY_CATEGORIES_ON_MENU` is omitted or set explicitly to `True`, the
 categories are shown in the tabbed navigation with any `MENUITEMS`. If
@@ -183,6 +186,46 @@ You can provide one of two options to specify the license for your content:
 The license details will be displayed at the bottom of the sidebar on every
 page.
 
+### Mermaid Configuration
+
+Enables [Mermaid][25] diagram generation on your site, allowing diagrams to be
+written in a Markdown-ish syntax. Simply wrap the code in a `pre` element
+with the `mermaid` class:
+
+```markdown
+<pre class="mermaid">
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+</pre>
+```
+
+If you set `MERMAID = True`, this will simply enable Mermaid with some default
+settings:
+
+```javascript
+  const defaults = {
+    securityLevel: "loose",
+    theme: "default",
+    themeVariables: {
+      fontFamily: 'BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif',
+    },
+  };
+```
+
+To override these settings, or any of Mermaid's own [default configuration][26]
+you can pass a _dictionary_ instead. This will be shallowly merged into the
+defaults:
+
+```python
+MERMAID = dict(
+    securityLevel="strict",
+    theme="forest",  # disables fontFamily override
+)
+```
+
 Custom Styling
 --------------
 
@@ -237,3 +280,5 @@ free to submit a [pull request][18].
   [22]: https://pypi.python.org/pypi/bulrush
   [23]: http://fontawesome.io/icon/file-text-o/
   [24]: ./screenshot-social.png
+  [25]: https://mermaid.js.org/
+  [26]: https://mermaid.js.org/config/setup/modules/mermaidAPI.html#mermaidapi-configuration-defaults
