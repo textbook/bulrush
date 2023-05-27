@@ -11,7 +11,7 @@
   {% endassets %}
   <style media="print">.is-hidden-print{display:none !important}</style>
   {% for extra_path in EXTRA_PATH_METADATA.values() %}
-    {% if extra_path.get('path', '').endswith('.css') %}
+    {% if extra_path.get('path', '').endswith('.css') and not extra_path.get('exclude', False)%}
       <link rel="stylesheet" href="{{ SITEURL }}/{{ extra_path['path'] }}">
     {% endif %}
   {% endfor %}
