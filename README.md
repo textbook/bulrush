@@ -245,6 +245,21 @@ EXTRA_PATH_METADATA = {
 }
 ```
 
+CSS files can also be prevented from being included in the base template by
+adding and an `exclude` key-value pair. For example, in your `pelicanconf.py`:
+
+```python
+# Static files
+STATIC_PATHS = [
+    'extra',
+    ...
+]
+EXTRA_PATH_METADATA = {
+    'extra/custom.css': {'path': 'custom.css', 'exclude': True},
+    ...
+}
+```
+
 In use
 ------
 
